@@ -1,5 +1,4 @@
-
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -7,48 +6,58 @@
 }
 
 /* scrollbar */
-::-webkit-scrollbar{
+::-webkit-scrollbar {
     width: 8px;
 }
-::-webkit-scrollbar-thumb{
+::-webkit-scrollbar-thumb {
     width: 5px;
     background-color: rgb(233, 227, 227);
     border-radius: 6px;
 }
-body{
-    background-color: rgb(233, 227, 227);;
+
+body {
+    background-color: rgb(233, 227, 227);
+    margin: 0;
 }
-a{
-    text-decoration: 0;
-    color:black;
+
+a {
+    text-decoration: none;
+    color: black;
     font-weight: 400;
     font-size: 14px;
     letter-spacing: 2px;
     text-transform: uppercase;
 }
-ul{
+
+ul {
     list-style: none;
 }
-header{
+
+
+header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 0 8%;
-    padding: 20px 0;
+    padding: 20px 8%;
     border-bottom: 1px solid black;
 }
 
-.header_logo{
+.header_logo {
     font-weight: 500;
-}
-.header__menu{
-    display: flex;
+    font-size: 18px; /* Augmenter la taille du logo sur les petits écrans */
 }
 
-.header_menu a{
+.header_menu,
+.header__buttons {
+    display: flex;
+    align-items: center;
+}
+
+.header_menu a {
     margin-left: 20px;
     padding-bottom: 3px;
     position: relative;
+    white-space: nowrap;
 }
 
 .header_menu a:after {
@@ -61,61 +70,66 @@ header{
     background-color: black;
     transition: 0.5s ease-out;
 }
-.header_menu a:hover:after{
+
+.header_menu a:hover:after {
     width: 100%;
 }
-.header__buttons a{
+
+.header__buttons a {
     margin-left: 20px;
-}
-.header__buttons a:last-child{
-    border: 1px solid black;
     padding: 10px 30px;
+    border: 1px solid black;
     transition: 0.5s;
 }
-.header__buttons a:last-child:hover{
+
+.header__buttons a:last-child:hover {
     background-color: black;
     color: #fff;
+}
 
+.separator {
+    display: none;
 }
-img{
-    width: 1500px;
-    height: 700px;
-}
-.wrapper{
+
+.wrapper {
     position: relative;
-    width: 500px;
-    height: 650px;
+    width: 90%;
+    max-width: 600px;
+    margin: 0 auto;
     background: white;
-    border: 2px solid rgba(255,255,255, .5);
+    border: 2px solid rgba(255, 255, 255, 0.5);
     border-radius: 20px;
     backdrop-filter: blur(20px);
-    box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: center;
     align-items: center;
-    bottom: 680px;
-    left: 500px;
-}
-.wrapper .form-box {
-    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 100px;
     padding: 20px;
 }
 
-.form-box h1 {
-font-size: 2em;
-color: #162938;
-text-align: center;
+.wrapper .form-box {
+    width: 100%;
+    padding: 20px;
+    text-align: center; /* Pour centrer le contenu du formulaire */
 }
-.input-box{
+
+.form-box h1 {
+    font-size: 2em;
+    color: #162938;
+    text-align: center;
+}
+
+.input-box {
     position: relative;
     width: 100%;
     height: 50px;
     border-bottom: 2px solid #162938;
     margin: 30px 0;
-
 }
 
-.input-box label{
+.input-box label {
     position: absolute;
     top: 30%;
     left: 5px;
@@ -126,12 +140,13 @@ text-align: center;
     pointer-events: none;
     transition: 0.5s;
 }
+
 .input-box input:focus~label,
-.input-box input:valid~label{
+.input-box input:valid~label {
     top: -5px;
 }
 
-.input-box input{
+.input-box input {
     width: 100%;
     height: 100%;
     background: transparent;
@@ -141,14 +156,79 @@ text-align: center;
     color: black;
     font-weight: 600;
 }
-.icon{
+
+.icon {
     background-color: transparent;
 }
 
-.btn{
+.btn {
     width: 100px;
     height: 30px;
-    background-color:white;
+    background-color: white;
     border: 2px solid black;
     border-radius: 20px;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    position: relative;
+    width: 100%;
+}
+
+footer p {
+    margin: 10px 0;
+}
+
+/* Ajouter ces règles pour le footer */
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 20px 0;
+}
+
+/* Ajouter ces règles pour le formulaire */
+.wrapper {
+    margin-top: 20px;
+    margin-bottom: 100px;
+}
+
+/* Media Query pour les petits appareils comme les téléphones */
+@media only screen and (max-width: 768px) {
+    header {
+        padding: 20px 5%;
+    }
+    .header_menu a {
+        margin-left: 10px;
+    }
+    .header__buttons a {
+        margin-left: 10px;
+    }
+    .separator {
+        display: block;
+        width: 100%;
+        height: 1px;
+        background-color: black;
+        margin: 10px 0;
+    }
+    .wrapper {
+        margin-bottom: 60px;
+    }
+    .input-box {
+        margin-top: 20px; /* Ajouter de l'espace au-dessus du formulaire */
+    }
+}
+
+/* Media Query pour les écrans plus larges comme les PC et les iPads */
+@media only screen and (min-width: 769px) {
+    footer {
+        position: relative;
+    }
+    .wrapper {
+        margin-bottom: 20px;
+    }
 }
